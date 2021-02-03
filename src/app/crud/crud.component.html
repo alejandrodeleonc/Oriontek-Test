@@ -1,0 +1,39 @@
+<table style="width:50%">
+  <tr>
+    <th class="header" *ngFor="let col of cols"  >
+      {{col.field}}
+    </th>
+    <th class="header" style="width:10rem">
+      acciones
+    </th>
+  </tr>
+
+  <tr *ngFor="let factura of facturas">
+
+    <td *ngFor="let col of cols" style="width: 10rem">
+      {{factura[col.field]}}
+    </td>
+
+
+    <td style="width: 10rem">
+      <button (click)="delete(factura)">Borrar</button>
+      <button (click)="editar(factura)">Editar</button>
+      <button (click)="ver(factura)">Ver</button>
+    </td>
+  </tr>
+</table>
+
+
+<div class="formulario"  >
+  <span><strong>Insertar nuevo objeto</strong></span>
+  <form [formGroup]="form" class="form">
+  <input type="text" placeholder="id" formControlName="id">
+  <input type="text" placeholder="nombre" formControlName="nombre">
+  <input type="text" placeholder="direccion" formControlName="direccion">
+  <button (click)="agregar()">{{buttonTitle}}</button>
+  <button (click)="clear()">Clear</button>
+  </form>
+
+
+
+</div>
